@@ -14,9 +14,9 @@ from blinker import signal
 # general settings
 WORKERS: int = int(os.getenv("WORKERS", 100))
 PYRO_WORKERS: int = int(os.getenv("PYRO_WORKERS", min(64, (os.cpu_count() + 4) * 10)))
-APP_ID: int = int(os.getenv("APP_ID", "20790743"))
-APP_HASH = os.getenv("APP_HASH", "266b46661c0eb26ee0cb9ef7dfebfe39")
-TOKEN = os.getenv("TOKEN", "6750645277:AAGZPhoz_zR1veYHzgK4J8y1kcRn7SxHT5o")
+APP_ID: int = int(os.getenv("APP_ID", ))
+APP_HASH = os.getenv("APP_HASH", "1234")
+TOKEN = os.getenv("TOKEN", "12345")
 
 REDIS = os.getenv("REDIS", "redis")
 
