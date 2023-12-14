@@ -262,14 +262,14 @@ def settings_handler(client: Client, message: types.Message):
     markup = InlineKeyboardMarkup(
         [
             [  # First row
-                InlineKeyboardButton("send as document", callback_data="document"),
-                InlineKeyboardButton("send as video", callback_data="video"),
-                InlineKeyboardButton("send as audio", callback_data="audio"),
+                InlineKeyboardButton("Send As Document", callback_data="document"),
+                InlineKeyboardButton("Send As Video", callback_data="video"),
+                InlineKeyboardButton("Send As Audio", callback_data="audio"),
             ],
             [  # second row
-                InlineKeyboardButton("High Quality", callback_data="high"),
-                InlineKeyboardButton("Medium Quality", callback_data="medium"),
-                InlineKeyboardButton("Low Quality", callback_data="low"),
+                InlineKeyboardButton("1080p Quality", callback_data="high"),
+                InlineKeyboardButton("720p Quality", callback_data="medium"),
+                InlineKeyboardButton("480p Quality", callback_data="low"),
             ],
             extra,
         ]
