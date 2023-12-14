@@ -29,7 +29,7 @@ ENABLE_VIP = os.getenv("VIP", False)
 OWNER = os.getenv("OWNER", "Sujan_Bots")
 
 # limitation settings
-AUTHORIZED_USER: str = os.getenv("AUTHORIZED_USER", "5123039648")
+AUTHORIZED_USER: str = os.getenv("AUTHORIZED_USER", "")
 # membership requires: the format could be username(without @ sign)/chat_id of channel or group.
 # You need to add the bot to this group/channel as admin
 REQUIRED_MEMBERSHIP: str = os.getenv("REQUIRED_MEMBERSHIP", "")
