@@ -14,9 +14,9 @@ from blinker import signal
 # general settings
 WORKERS: int = int(os.getenv("WORKERS", 100))
 PYRO_WORKERS: int = int(os.getenv("PYRO_WORKERS", min(64, (os.cpu_count() + 4) * 10)))
-APP_ID: int = int(os.getenv("APP_ID", 198214))
-APP_HASH = os.getenv("APP_HASH", "1234b90")
-TOKEN = os.getenv("TOKEN", "1234")
+APP_ID: int = int(os.getenv("APP_ID", "20790743"))
+APP_HASH = os.getenv("APP_HASH", "266b46661c0eb26ee0cb9ef7dfebfe39")
+TOKEN = os.getenv("TOKEN", "6750645277:AAGZPhoz_zR1veYHzgK4J8y1kcRn7SxHT5o")
 
 REDIS = os.getenv("REDIS", "redis")
 
@@ -26,10 +26,10 @@ TG_MAX_SIZE = 2000 * 1024 * 1024
 EXPIRE = 24 * 3600
 
 ENABLE_VIP = os.getenv("VIP", False)
-OWNER = os.getenv("OWNER", "BennyThink")
+OWNER = os.getenv("OWNER", "Sujan_Bots")
 
 # limitation settings
-AUTHORIZED_USER: str = os.getenv("AUTHORIZED_USER", "")
+AUTHORIZED_USER: str = os.getenv("AUTHORIZED_USER", "5123039648")
 # membership requires: the format could be username(without @ sign)/chat_id of channel or group.
 # You need to add the bot to this group/channel as admin
 REQUIRED_MEMBERSHIP: str = os.getenv("REQUIRED_MEMBERSHIP", "")
@@ -54,7 +54,7 @@ PLAYLIST_SUPPORT = os.getenv("PLAYLIST_SUPPORT", False)
 M3U8_SUPPORT = os.getenv("M3U8_SUPPORT", False)
 ENABLE_ARIA2 = os.getenv("ENABLE_ARIA2", False)
 
-RATE_LIMIT = os.getenv("RATE_LIMIT", 120)
+RATE_LIMIT = os.getenv("RATE_LIMIT", 1)
 IS_BACKUP_BOT = os.getenv("IS_BACKUP_BOT")
 RCLONE_PATH = os.getenv("RCLONE")
 # This will set the value for the tmpfile path(download path) if it is set.
