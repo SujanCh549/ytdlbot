@@ -37,7 +37,6 @@ def apply_log_formatter():
 
 
 def customize_logger(logger: list):
-    apply_log_formatter()
     for log in logger:
         logging.getLogger(log).setLevel(level=logging.INFO)
 
@@ -166,7 +165,6 @@ class Detector:
             "types.UpdatesTooLong",
             "Got shutdown from remote",
             "Code is updated",
-            'Retrying "messages.GetMessages"',
             "OSError: Connection lost",
             "[Errno -3] Try again",
             "MISCONF",
@@ -179,25 +177,15 @@ class Detector:
 
     def next_salt_detector(self):
         text = "Next salt in"
-        if self.logs.count(text) >= 4:
+        if self.logs.count(text) >= 5:
             logging.critical("Next salt crash: %s", self.func_name())
             return True
 
-    def msg_id_detector(self):
-        text = "The msg_id is too low"
-        if text in self.logs:
-            logging.critical("msg id crash: %s ", self.func_name())
-            for item in pathlib.Path(__file__).parent.glob("ytdl-*"):
-                item.unlink(missing_ok=True)
-            time.sleep(3)
+    def connection_reset_detector(self):
+        text = "Send exception: ConnectionResetError Connection lost"
+        if self.logs.count(text) >= 5:
+            logging.critical("connection lost: %s ", self.func_name())
             return True
-
-    # def idle_detector(self):
-    #     mtime = os.stat("/var/log/ytdl.log").st_mtime
-    #     cur_ts = time.time()
-    #     if cur_ts - mtime > 7200:
-    #         logging.warning("Potential crash detected by %s, it's time to commit suicide...", self.func_name())
-    #         return True
 
 
 def auto_restart():
@@ -205,7 +193,7 @@ def auto_restart():
     if not os.path.exists(log_path):
         return
     with open(log_path) as f:
-        logs = "".join(tail_log(f, lines=100))
+        logs = "".join(tail_log(f, lines=10))
 
     det = Detector(logs)
     method_list = [getattr(det, func) for func in dir(det) if func.endswith("_detector")]
