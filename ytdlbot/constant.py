@@ -23,23 +23,61 @@ from utils import get_func_queue
 
 class BotText:
     start = """
-    Welcome to YouTube Downloader Bot.\n\nType /help For More Information.\n\nJoin @Sujan_BotZ To Use This Bot."""
+    Welcome to YouTube Download bot. Type /help for more information. 
+    Backup bot: @benny_2ytdlbot
+    Join https://t.me/+OGRC8tp9-U9mZDZl for updates."""
 
     help = f"""
-1. If The Bot Doesn't Work, Try Again Or Dm @Sujan_Bots"""
+1. If the bot doesn't work, try again or join https://t.me/+OGRC8tp9-U9mZDZl for updates.
 
-    about = "YouTube Downloader Bot By ~ @Sujan_BotZ."
+2. Source code: https://github.com/tgbot-collection/ytdlbot
+    """
+
+    about = "YouTube Downloader by @BennyThink.\n\nOpen source on GitHub: https://github.com/tgbot-collection/ytdlbot"
+
+    buy = f"""
+**Terms:**
+1. You can use this bot to download video for {FREE_DOWNLOAD} times within a 24-hour period.
+
+2. You can buy additional download tokens, valid permanently.
+
+3. Refunds are possible, contact me if you need that @BennyThink
+
+4. Download for paid user will be automatically changed to Local mode to avoid queuing.
+
+5. Paid user can download files larger than 2GB.
+
+**Price:**
+valid permanently
+1. 1 USD == {TOKEN_PRICE} tokens
+2. 7 CNY == {TOKEN_PRICE} tokens
+3. 10 TRX == {TOKEN_PRICE} tokens
+
+**Payment options:**
+Pay any amount you want. For example you can send 20 TRX for {TOKEN_PRICE * 2} tokens.
+1. AFDIAN(AliPay, WeChat Pay and PayPal): {AFD_LINK}
+2. Buy me a coffee: {COFFEE_LINK}
+3. Telegram Bot Payment(Stripe), please click Bot Payment button.
+4. TRON(TRX), please click TRON(TRX) button.
+
+**After payment:**
+1. Afdian: attach order number with /redeem command (e.g., `/redeem 123456`).
+2. Buy Me a Coffee: attach email with /redeem command (e.g., `/redeem 123@x.com`). **Use different email each time.**
+3. Telegram Payment & Tron(TRX): automatically activated within 60s. Check /start to see your balance.
+
+Want to buy more token with Telegram payment? Let's say 100? Here you go! `/buy 123`
+    """
 
     private = "This bot is for private use"
 
     membership_require = f"You need to join this group or channel to use this bot\n\nhttps://t.me/{REQUIRED_MEMBERSHIP}"
 
     settings = """
-Please The Format And Video Quality For Your video. These Settings Only **apply to YouTube videos**.
+Please choose the preferred format and video quality for your video. These settings only **apply to YouTube videos**.
 
-High Quality Is Recommended. Medium quality Is 720P, While Low Quality Is 480P.
+High quality is recommended. Medium quality aims to 720P, while low quality is 480P.
 
-If You Choose To Send The Video As Document, It Will Not Be Possible To Stream It.
+If you choose to send the video as a document, it will not be possible to stream it.
 
 Your current settings:
 Video quality: **{0}**
@@ -47,13 +85,20 @@ Sending format: **{1}**
 """
     custom_text = os.getenv("CUSTOM_TEXT", "")
 
+    premium_warning = """
+    Your file is too big, do you want me to try to send it as premium user? 
+    This is an experimental feature so you can only use it once per day.
+    Also, the premium user will know who you are and what you are downloading. 
+    You may be banned if you abuse this feature.
+    """
+
     @staticmethod
     def get_receive_link_text() -> str:
         reserved = get_func_queue("reserved")
         if ENABLE_CELERY and reserved:
-            text = f"Your Tasks Was Added To The Reserved Queue {reserved}. Processing....😊\n\n"
+            text = f"Your tasks was added to the reserved queue {reserved}. Processing...\n\n"
         else:
-            text = "Your Task Was Added To Active Queue.\nProcessing....😊\n\n"
+            text = "Your task was added to active queue.\nProcessing...\n\n"
 
         return text
 
