@@ -21,6 +21,7 @@ import uuid
 import coloredlogs
 import ffmpeg
 import psutil
+from http.cookiejar import MozillaCookieJar
 
 from config import TMPFILE_PATH
 from flower_tasks import app
@@ -158,6 +159,13 @@ class Detector:
             return pyinspect.stack()[1][3]
         return "N/A"
 
+    def auth_key_detector(self):
+        text = "Server sent transport error: 404 (auth key not found)"
+        if self.logs.count(text) >= 3:
+            logging.critical("auth key not found: %s", self.func_name())
+            os.unlink("*.session")
+            return True
+
     def updates_too_long_detector(self):
         # If you're seeing this, that means you have logged more than 10 device
         # and the earliest account was kicked out. Restart the program could get you back in.
@@ -210,6 +218,12 @@ def clean_tempfile():
     for item in pathlib.Path(TMPFILE_PATH or tempfile.gettempdir()).glob("ytdl-*"):
         if time.time() - item.stat().st_ctime > 3600:
             shutil.rmtree(item, ignore_errors=True)
+
+
+def parse_cookie_file(cookiefile):
+    jar = MozillaCookieJar(cookiefile)
+    jar.load()
+    return {cookie.name: cookie.value for cookie in jar}
 
 
 if __name__ == "__main__":
