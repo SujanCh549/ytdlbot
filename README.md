@@ -5,46 +5,15 @@
 YouTube Download Bot🚀🎬⬇️
 
 This Telegram bot allows you to download videos from YouTube and other supported websites, including Instagram!
+* YouTube 😅
+* Any websites [supported by yt-dlp](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md)
 
-# Usage
-
-[https://t.me/benny_ytdlbot](https://t.me/benny_ytdlbot)
-
-Join Telegram Channel https://t.me/+OGRC8tp9-U9mZDZl for updates.
-
-Send link directly to the bot. Any
-Websites [supported by yt-dlp](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md) will work too.
-
-# Limitations of my bot
-
-Due to limitations on servers and bandwidth, there are some restrictions on this free service.
-
-* Each user is limited to 10 free downloads per 24-hour period
-* Maximum of three subscriptions allowed for YouTube channels.
-* Files bigger than 2 GiB will require at least 1 download token.
-
-If you need more downloads, you can buy download tokens.
-
-# Features
-
-1. fast download and upload.
-2. ads free
-3. support progress bar
-4. audio conversion
-5. playlist download
-6. payment support: afdian, buy me a coffee, Telegram Payment and Tron(TRX)
-7. different video resolutions
-8. sending as file or streaming as video
-9. celery worker distribution - faster than before.
-10. subscriptions to YouTube Channels
-11. cache mechanism - download once for the same video.
-12. instagram posts
-13. 4 GiB file size support with Telegram Premium
-
-> If you download files larger than 2 GiB, you agreed that this file will be uploaded by me. I know who you are and what
-> you download.
-
-# Screenshots
+  ### Specific link downloader (Use /spdl for these links)
+    * Instagram (Videos, Photos, Reels, IGTV & carousel)
+    * Pixeldrain
+    * KrakenFiles
+    * Terabox (file/~~folders~~) (you need to add cookies txt in ytdlbot folder with name) 
+    [terabox.txt](https://github.com/ytdl-org/youtube-dl#how-do-i-pass-cookies-to-youtube-dl).
 
 ## Normal download
 
@@ -115,11 +84,6 @@ docker run -e APP_ID=111 -e APP_HASH=111 -e TOKEN=370FXI bennythink/ytdlbot
 <a href="https://heroku.com/deploy"><img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy to Heroku"></a>
 
 If you are having trouble deploying, you can fork the project to your personal account and deploy it from there.
-
-**Starting November 28, 2022, free Heroku Dynos, free Heroku Postgres, and free Heroku Data for Redis® plans will no
-longer be available.**
-[Heroku Announcement](https://devcenter.heroku.com/articles/free-dyno-hours)
-</details>
 
 # Complete deployment guide for docker-compose
 
@@ -265,10 +229,6 @@ docker-compose -f worker.yml up -d
 4. Copy the session file `premium.session` to `data` directory
 5. `docker-compose up -d premium`
 
-## kubernetes
-
-refer guide here [kubernetes](k8s.md)
-
 # Command
 
 ```
@@ -276,6 +236,7 @@ start - Let's start
 about - What's this bot?
 ping - Bot running status
 help - Help
+spdl - Use to download specific link downloader links
 ytdl - Download video in group
 settings - Set your preference
 buy - Buy token
@@ -286,8 +247,6 @@ sub_count - Check subscription status, owner only.
 uncache - Delete cache for this link, owner only.
 purge - Delete all tasks, owner only.
 ```
-
-# Test data
 
 ## Test video
 
@@ -309,36 +268,6 @@ https://twitter.com/BennyThinks/status/1475836588542341124
 * reels: https://www.instagram.com/p/C0ozGsjtY0W/
 * image carousel: https://www.instagram.com/p/C0ozPQ5o536/
 * video and image carousel: https://www.instagram.com/p/C0ozhsVo-m8/
+## Test TeraBox
 
-# Donation
-
-Found this bot useful? You can donate to support the development of this bot.
-
-## Donation Platforms
-
-* [Buy me a coffee](https://www.buymeacoffee.com/bennythink)
-* [Afdian](https://afdian.net/@BennyThink)
-* [GitHub Sponsor](https://github.com/sponsors/BennyThink)
-
-## Stripe
-
-You can choose to donate via Stripe.
-
-| USD(Card, Apple Pay and Google Pay)              | CNY(Card, Apple Pay, Google Pay and Alipay)      |
-|--------------------------------------------------|--------------------------------------------------|
-| [USD](https://buy.stripe.com/cN203sdZB98RevC3cd) | [CNY](https://buy.stripe.com/dR67vU4p13Ox73a6oq) |
-| ![](assets/USD.png)                              | ![](assets/CNY.png)                              |
-
-## Cryptocurrency
-
-TRX or USDT(TRC20)
-
-![](assets/tron.png)
-
-```
-TF9peZjC2FYjU4xNMPg3uP4caYLJxtXeJS
-```
-
-# License
-
-Apache License 2.0
+https://terabox.com/s/1mpgNshrZVl6KuH717Hs23Q
