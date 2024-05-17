@@ -220,8 +220,6 @@ def ytdl_download(url: str, tempdir: str, bm, **kwargs) -> list:
             None,
         ]
     adjust_formats(chat_id, url, formats, hijack)
-    if download_instagram(url, tempdir):
-        return list(pathlib.Path(tempdir).glob("*"))
 
     address = ["::", "0.0.0.0"] if IPv6 else [None]
     error = None
