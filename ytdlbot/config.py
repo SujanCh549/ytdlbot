@@ -54,7 +54,7 @@ ARCHIVE_ID = os.getenv("ARCHIVE_ID")
 IPv6 = os.getenv("IPv6", False)
 ENABLE_FFMPEG = os.getenv("ENABLE_FFMPEG", False)
 
-PLAYLIST_SUPPORT = os.getenv("PLAYLIST_SUPPORT", False)
+PLAYLIST_SUPPORT = os.getenv("PLAYLIST_SUPPORT", True)
 M3U8_SUPPORT = os.getenv("M3U8_SUPPORT", False)
 ENABLE_ARIA2 = os.getenv("ENABLE_ARIA2", False)
 
