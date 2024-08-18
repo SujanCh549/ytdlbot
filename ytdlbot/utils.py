@@ -12,6 +12,7 @@ import inspect as pyinspect
 import logging
 import os
 import pathlib
+import re
 import shutil
 import subprocess
 import tempfile
@@ -74,6 +75,9 @@ def adjust_formats(user_id: int, url: str, formats: list, hijack=None):
 
     if settings[2] == "audio":
         formats.insert(0, "bestaudio[ext=m4a]")
+
+    if settings[2] == "document":
+        formats.insert(0, None)
 
 
 def get_metadata(video_path):
