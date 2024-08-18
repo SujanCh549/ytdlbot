@@ -18,11 +18,13 @@ import subprocess
 import tempfile
 import time
 import uuid
+from http.cookiejar import MozillaCookieJar
+from urllib.parse import quote_plus
 
 import coloredlogs
 import ffmpeg
 import psutil
-from http.cookiejar import MozillaCookieJar
+
 
 from config import TMPFILE_PATH
 from flower_tasks import app
