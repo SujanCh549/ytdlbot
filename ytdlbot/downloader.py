@@ -22,7 +22,6 @@ from unittest.mock import MagicMock
 import ffmpeg
 import ffpb
 import filetype
-import requests
 import yt_dlp as ytdl
 from pyrogram import types
 from tqdm import tqdm
