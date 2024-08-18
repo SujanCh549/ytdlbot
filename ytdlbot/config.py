@@ -38,7 +38,7 @@ REQUIRED_MEMBERSHIP: str = os.getenv("REQUIRED_MEMBERSHIP", "")
 
 # celery related
 IS_BACKUP_BOT = os.getenv("IS_BACKUP_BOT")
-ENABLE_CELERY = os.getenv("ENABLE_CELERY", False)
+ENABLE_CELERY = os.getenv("ENABLE_CELERY", True)
 if IS_BACKUP_BOT:
     BROKER = os.getenv("BROKER", f"redis://{REDIS}:6379/1")
 else:
@@ -52,11 +52,11 @@ AUDIO_FORMAT = os.getenv("AUDIO_FORMAT")
 ARCHIVE_ID = os.getenv("ARCHIVE_ID")
 
 IPv6 = os.getenv("IPv6", False)
-ENABLE_FFMPEG = os.getenv("ENABLE_FFMPEG", False)
+ENABLE_FFMPEG = os.getenv("ENABLE_FFMPEG", True)
 
 PLAYLIST_SUPPORT = os.getenv("PLAYLIST_SUPPORT", True)
 M3U8_SUPPORT = os.getenv("M3U8_SUPPORT", False)
-ENABLE_ARIA2 = os.getenv("ENABLE_ARIA2", False)
+ENABLE_ARIA2 = os.getenv("ENABLE_ARIA2", True)
 
 RATE_LIMIT = os.getenv("RATE_LIMIT", 120)
 RCLONE_PATH = os.getenv("RCLONE")
